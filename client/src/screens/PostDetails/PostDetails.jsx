@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './PostDetails.css'
-import Layout from '../../components/shared/Layout/Layout'
+import Layout from '../../components/Shared/Layout/Layout'
 import { getPost, deletePost } from '../../services/apiPosts'
 import { useParams, Link } from 'react-router-dom'
 
