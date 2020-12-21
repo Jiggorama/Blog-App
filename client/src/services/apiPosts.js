@@ -1,6 +1,13 @@
 import api from './apiConfig'
 
-
+export const getPosts = async id => {
+  try {
+      const response = await api.get(`/posts`)
+      return response.data
+  } catch (error) {
+      throw error
+  }
+}
 
 export const getPost = async id => {
   try {

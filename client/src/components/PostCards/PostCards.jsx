@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "./PostCards.css"
 import PostCard from '../PostCard/PostCard'
-import {getPost} from '../../services/apiPosts'
+import {getPosts} from '../../services/apiPosts'
 
 class PostCards extends Component {
   constructor() {
@@ -12,7 +12,7 @@ class PostCards extends Component {
   }
   
   async componentDidMount() {
-    const posts = await getPost()
+    const posts = await getPosts()
     this.setState({posts})
   }
 
