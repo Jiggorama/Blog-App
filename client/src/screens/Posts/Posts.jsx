@@ -6,7 +6,7 @@ import Search from '../../components/Search/Search'
 import { AZ, ZA, lowestFirst, highestFirst } from "../../utils/sort"
 import Sort from '../../components/Sort/Sort'
 import Layout from '../../components/Shared/Layout/Layout'
-import { getPost } from '../../services/apiPosts'
+import { getPosts } from '../../services/apiPosts'
 
 const Posts = (props) => {
   const [allPosts, setAllPosts] = useState([])
@@ -15,7 +15,7 @@ const Posts = (props) => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const posts = await getPost()
+      const posts = await getPosts()
       setAllPosts(posts)
       setQueriedPosts(posts)
     }
@@ -31,12 +31,6 @@ const Posts = (props) => {
       case "name-descending":
         setQueriedPosts(ZA(queriedPosts))
         break
-      // case "price-ascending":
-      //   setQueriedProducts(lowestFirst(queriedProducts))
-      //   break
-      // case "price-descending":
-      //   setQueriedProducts(highestFirst(queriedProducts))
-      //   break
       default:
         break
     }
