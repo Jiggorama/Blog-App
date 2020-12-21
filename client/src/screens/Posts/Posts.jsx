@@ -5,8 +5,8 @@ import Post from '../../components/Post/Post'
 import Search from '../../components/Search/Search'
 import { AZ, ZA, lowestFirst, highestFirst } from "../../utils/sort"
 import Sort from '../../components/Sort/Sort'
-import Layout from '../../components/shared/Layout/Layout'
-import { getPosts } from '../../services/apirPosts'
+import Layout from '../../components/Shared/Layout/Layout'
+import { getPost } from '../../services/apiPosts'
 
 const Posts = (props) => {
   const [allPosts, setAllPosts] = useState([])
@@ -15,7 +15,7 @@ const Posts = (props) => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const posts = await getPosts()
+      const posts = await getPost()
       setAllPosts(posts)
       setQueriedPosts(posts)
     }
@@ -44,13 +44,13 @@ const Posts = (props) => {
 
   const handleSearch = event => {
     const newQueriedProducts = allPosts.filter(post => post.name.toLowerCase().includes(event.target.value.toLowerCase()))
-    setQueriedProducts(newQueriedProducts, () => handleSort(sortType))
+    setQueriedPosts(newQueriedProducts, () => handleSort(sortType))
   }
 
   const handleSubmit = event => event.preventDefault()
 
-  const productsJSX = queriedPosts.map((post, index) =>
-    <Product _id={post._id} title={post.title} author={post.author} content={post.content} imgURL={post.imgURL} />
+  const postsJSX = queriedPosts.map((post, index) =>
+    <Post _id={post._id} title={post.title} author={post.author} content={post.content} imgURL={post.imgURL} />
   )
 
   return (
