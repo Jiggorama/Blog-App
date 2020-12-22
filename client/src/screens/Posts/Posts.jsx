@@ -44,7 +44,7 @@ const Posts = (props) => {
   const handleSubmit = event => event.preventDefault()
 
   const postsJSX = queriedPosts.map((post, index) =>
-    <Post _id={post._id} title={post.title} author={post.author} content={post.content} imgURL={post.imgURL} />
+    <Post _id={post._id} title={post.title} author={post.author} content={post.content} imgURL={post.imgURL} key={index}/>
   )
 
   return (

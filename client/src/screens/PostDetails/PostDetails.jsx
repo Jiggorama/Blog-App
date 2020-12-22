@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react'
 import './PostDetails.css'
 import Layout from '../../components/Shared/Layout/Layout'
 import { getPost, deletePost } from '../../services/apiPosts'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useHistory} from 'react-router-dom'
 
 const PostDetail = (props) => {
 
   const [post, setPost] = useState(null)
   const [isLoaded, setLoaded] = useState(false)
   const { id } = useParams()
+  let history = useHistory()
 
   useEffect(() => {
       const fetchPost = async () => {
@@ -22,6 +23,10 @@ const PostDetail = (props) => {
   if (!isLoaded) {
       return <h1>Loading...</h1>
   }
+  let handleDelete = () => {
+    deletePost(post._id)
+    history.push("/posts")
+  }
 
   return (
       <Layout>
@@ -33,7 +38,7 @@ const PostDetail = (props) => {
                   <div className="content">{post.content}</div>
                   <div className="button-container">
                       <button className="edit-button"><Link className="edit-link" to={`/posts/${post._id}/edit`}>Edit</Link></button>
-                      <button className="delete-button" onClick={() => deletePost(post._id)}>Delete</button>
+                      <button className="delete-button" onClick={handleDelete}>Delete</button>
                   </div>
               </div>
           </div>
