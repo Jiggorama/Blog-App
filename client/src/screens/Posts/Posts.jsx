@@ -3,7 +3,7 @@ import './Post.css'
 
 import Post from '../../components/Post/Post'
 import Search from '../../components/Search/Search'
-import { AZ, ZA, lowestFirst, highestFirst } from "../../utils/sort"
+import { AZ, ZA, } from "../../utils/sort"
 import Sort from '../../components/Sort/Sort'
 import Layout from '../../components/Shared/Layout/Layout'
 import { getPosts } from '../../services/apiPosts'
