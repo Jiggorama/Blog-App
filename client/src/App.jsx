@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Home from "./screens/Home/home";
+import Home from "./screens/Home/Home";
 import Posts from "./screens/Posts/Posts";
 import PostDetails from "./screens/PostDetails/PostDetails";
 import PostCreate from "./screens/PostCreate/PostCreate";

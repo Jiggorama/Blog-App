@@ -1,5 +1,5 @@
 import React from "react";
-import "./home.css";
+import "./Home.css";
 import PostCards from "../../components/PostCards/PostCards";
 import Layout from "../../components/Shared/Layout/Layout";
 
