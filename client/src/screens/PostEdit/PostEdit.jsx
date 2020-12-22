@@ -11,9 +11,12 @@ const PostEdit = (props) => {
     author: "",
     imgURL: "",
   });
-
+ 
+  console.log(props)
+  
   const [isUpdated, setUpdated] = useState(false);
   let { id } = useParams();
+  
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -24,22 +27,22 @@ const PostEdit = (props) => {
   }, [id]);
 
   const handleChange = (event) => {
-    const { title, value } = event.target;
+    const { name, value } = event.target;
     setPost({
       ...post,
-      [title]: value,
+      [name]: value,
     });
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    let { id } = props.match.params;
+    // let { id } = props.match.params;
     const updated = await updatePost(id, post);
     setUpdated(updated);
   };
 
   if (isUpdated) {
-    return <Redirect to={`/posts/${props.match.params.id}`} />;
+    return <Redirect to={`/posts/${id}`} />;
   }
 
   return (
