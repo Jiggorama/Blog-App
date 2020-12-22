@@ -15,10 +15,10 @@ const PostCreate = (props) => {
   const [isCreated, setCreated] = useState(false);
 
   const handleChange = (event) => {
-    const { title, value } = event.target;
+    const { name, value } = event.target;
     setPost({
       ...post,
-      [title]: value,
+      [name]: value,
     });
   };
 
@@ -36,6 +36,7 @@ const PostCreate = (props) => {
       <form className="create-form" onSubmit={handleSubmit}>
         <input
           className="input-title"
+          type='text'
           placeholder="Title"
           value={post.title}
           name="title"
@@ -45,6 +46,7 @@ const PostCreate = (props) => {
         />
         <input
           className="input-author"
+          type='text'
           placeholder="Author"
           value={post.author}
           name="author"
@@ -54,6 +56,7 @@ const PostCreate = (props) => {
         <textarea
           className="textarea-content"
           rows={10}
+          type='text'
           placeholder="Content"
           value={post.content}
           name="content"
@@ -63,6 +66,7 @@ const PostCreate = (props) => {
         <input
           className="input-image-link"
           placeholder="Image Link"
+          type='text'
           value={post.imgURL}
           name="imgURL"
           required
