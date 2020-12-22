@@ -32,6 +32,7 @@ const PostCreate = (props) => {
     return <Redirect to={`/posts`} />;
   }
   return (
+    <div className="form-background">
     <Layout user={props.user}>
       <form className="create-form" onSubmit={handleSubmit}>
         <input
@@ -76,7 +77,8 @@ const PostCreate = (props) => {
           Submit
         </button>
       </form>
-    </Layout>
+      </Layout>
+      </div>
   );
 };
 
